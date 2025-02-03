@@ -1,0 +1,78 @@
+@import '../../../styles.scss';
+
+.form-container {     
+    padding: 20px;
+    display: grid;   
+    grid-template-columns: 224px 20px 224px 40px 224px 20px 224px;;
+    grid-template-rows: 30px 30px 90px 90px 90px 90px 30px 30px 70px 80px;
+    grid-template-areas: 
+    "customer-title customer-title customer-title . grid-title grid-title grid-title "
+    ". . . . . . ."     
+    "field-name . field-taxNumber . grid grid grid "
+    "field-postCode . field-street . grid grid grid "
+    "field-city . field-country . grid grid grid "
+    ". . . . grid grid grid "
+    ". . . . grid grid grid "
+    ". . . . grid grid grid"   
+    ". . . . . . ."
+    ". . . add-button . . ." 
+
+   
+}
+
+.grid-title{
+    grid-area: grid-title
+}
+
+.customer-title{
+    grid-area: customer-title
+}
+
+.grid-table {    
+    grid-area: grid-table;
+}
+
+.grid-buttons {    
+    grid-area: grid-buttons; 
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.grid{
+    grid-area: grid;
+    display: grid;  
+    grid-template-columns: auto;
+    grid-template-rows: 50px 20px 418px;
+    grid-template-areas: 
+    "grid-buttons"
+    '.'
+    "grid-table" 
+}
+
+.add-button{
+    grid-area: add-button; 
+}
+
+.field-name {
+    grid-area: field-name;
+}
+
+.field-taxNumber {
+    grid-area: field-taxNumber;
+}
+
+.field-postCode {
+    grid-area: field-postCode;
+}
+
+.field-city {
+    grid-area: field-city;
+}
+
+.field-street {
+    grid-area: field-street;
+}
+
+.field-country {
+    grid-area: field-country;
+}

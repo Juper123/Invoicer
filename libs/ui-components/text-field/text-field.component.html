@@ -1,0 +1,8 @@
+<ng-container [formGroup]="formGroup">
+    <mat-form-field appearance="outline">
+        <mat-label>{{labelSignal()}}</mat-label>
+        <input matInput [type]="inputTypeSignal()" [required]="requiredSignal()" [mask]="maskSignal()"
+            [placeholder]="placeholder" [dropSpecialCharacters]="false" [formControlName]=" formControlNameSignal()">
+        <mat-error>{{requiredMessage()}}</mat-error>
+    </mat-form-field>
+</ng-container>

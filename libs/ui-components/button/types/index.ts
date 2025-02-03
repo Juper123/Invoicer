@@ -1,0 +1,1 @@
+export { ButtonConfig } from './button-config.interface'

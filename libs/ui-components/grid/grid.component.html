@@ -1,0 +1,16 @@
+<div class="overflow-auto {{config.classes}}">
+    <table mat-table [dataSource]="dataSource">
+
+        <ng-container *ngFor="let col of config.columns" [matColumnDef]="col.property">
+            <th mat-header-cell *matHeaderCellDef>
+                <div>{{ col.name }} </div>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{ element[col.property] }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnPropertyNames; sticky: true"></tr>
+        <tr mat-row (click)="setSelectedRow(row)" [class.selected-row]="isRowSelected(row)"
+            *matRowDef="let row; columns: columnPropertyNames;"></tr>
+
+    </table>
+</div>

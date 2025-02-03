@@ -1,0 +1,96 @@
+@import '../../../styles.scss';
+
+.form-container {     
+    padding: 20px;
+    display: grid;   
+    grid-template-columns: 224px 20px 224px 40px 224px 20px 224px;;
+    grid-template-rows: 30px 30px 90px 90px 90px 90px 90px 40px 80px;
+    grid-template-areas: 
+    "invoices-title invoices-title invoices-title . grid-title grid-title grid-title "
+    ". . . . . . ."     
+    "field-orderNumber . field-customerTaxNumber . grid grid grid "
+    "field-sellDate . field-paymentPeriod . grid grid grid "
+    "field-price . field-currency . grid grid grid "
+    "field-tax . field-exchangeCurrency . grid grid grid "   
+    "field-quantity . field-quantityUnit . grid grid grid"   
+    "field-description . . . grid grid grid"    
+    ". . . create-button . . ."    
+}
+
+
+.grid {
+    grid-area: grid;
+    display: grid;  
+    grid-template-columns: auto;
+    grid-template-rows: 50px 20px 418px;
+    grid-template-areas: 
+    "grid-buttons"
+    "."
+    "grid-table" 
+}
+
+.grid-table {
+    grid-area: grid-table;         
+}
+
+.create-button{
+    grid-area: create-button;
+}
+
+.grid-buttons{
+    grid-area: grid-buttons;
+    padding-top: 5px;
+    
+}
+
+.grid-title{
+    grid-area: grid-title
+}
+
+.invoices-title{
+    grid-area: invoices-title;
+}
+
+.field-quantityUnit {
+    grid-area: field-quantityUnit;
+}
+
+.field-quantity {
+    grid-area: field-quantity;
+}
+
+.field-description {
+    grid-area: field-description;
+}
+
+.field-currency {
+    grid-area: field-currency;
+}
+
+.field-exchangeCurrency {
+    grid-area: field-exchangeCurrency;
+}
+
+.field-paymentPeriod {
+    grid-area: field-paymentPeriod;
+}
+
+.field-tax {
+    grid-area: field-tax;
+}
+
+.field-customerTaxNumber {
+    grid-area: field-customerTaxNumber;
+}
+
+.field-sellDate {
+    grid-area: field-sellDate;
+}
+
+.field-price {
+    grid-area: field-price;
+}
+
+.field-orderNumber {
+    grid-area: field-orderNumber;
+}

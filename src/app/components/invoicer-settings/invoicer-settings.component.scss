@@ -1,0 +1,97 @@
+@import '../../../styles.scss';
+
+.form-container {
+    padding: 20px;
+    display: grid;   
+    grid-template-columns:224px 20px 224px 40px 224px 20px 224px;
+    grid-template-rows: 30px 30px 90px 90px 90px 90px 30px 10px 90px;
+    grid-template-areas:   
+    "seller-section seller-section seller-section . invoice-section invoice-section invoice-section "
+    ". . . . . . ."     
+    "field-sellerName . field-sellerTaxNumber . field-paymentPeriod . field-tax "
+    "field-sellerPostCode . field-sellerStreet . field-quantity . field-quantityUnit "
+    "field-sellerCity . field-sellerCountry . field-currency . field-exchangeCurrency "
+    "field-sellerBank . . . . . field-description "
+    " field-sellerBankAccountPln . field-sellerBankAccountEur . api-section api-section api-section"
+    ". . . . . . ."   
+    " . . . . field-apiUrl . field-apiToken"
+    ". . . button-section . . ."
+    ;
+}
+
+.button-section{
+    grid-area:  button-section;    
+    justify-self: stretch;
+}
+
+.seller-section{
+    grid-area: seller-section;
+    justify-self: stretch;
+}
+.invoice-section{
+    grid-area: invoice-section;
+    justify-self: stretch;
+}
+.api-section{
+    grid-area: api-section;
+    justify-self: stretch;
+}
+
+.field-sellerBank {
+    grid-area: field-sellerBank;
+}
+
+.field-sellerBankAccountEur {
+    grid-area: field-sellerBankAccountEur;
+}
+
+.field-sellerBankAccountPln {
+    grid-area: field-sellerBankAccountPln;
+}
+
+.field-sellerTaxNumber {
+    grid-area: field-sellerTaxNumber;
+}
+.field-sellerCountry {
+    grid-area: field-sellerCountry;
+}
+.field-sellerCity {
+    grid-area: field-sellerCity;
+}
+.field-sellerPostCode {
+    grid-area: field-sellerPostCode;
+}
+.field-sellerStreet {
+    grid-area: field-sellerStreet;
+}
+.field-sellerName {
+    grid-area: field-sellerName;
+}
+.field-currency {
+    grid-area: field-currency;
+}
+.field-exchangeCurrency {
+    grid-area: field-exchangeCurrency;
+}
+.field-quantityUnit {
+    grid-area: field-quantityUnit;
+}
+.field-quantity {
+    grid-area: field-quantity;
+}
+.field-description {
+    grid-area: field-description;
+}
+.field-tax {
+    grid-area: field-tax;
+}
+.field-paymentPeriod {
+    grid-area: field-paymentPeriod;
+}
+.field-apiToken {
+    grid-area: field-apiToken;
+}
+.field-apiUrl {
+    grid-area: field-apiUrl;
+}
+

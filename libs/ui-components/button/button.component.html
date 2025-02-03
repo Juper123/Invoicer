@@ -1,0 +1,12 @@
+<div *ngIf="buttonTypeExtendedFab" class="button-container">
+    <a mat-fab (click)="onButtonClick()" [disabled]="disabled" color="{{buttonConfig?.color}}"
+        class="{{buttonConfig?.classes}}" [class.selected-button]="isButtonSelected">
+        <mat-icon class="mr-5">{{buttonConfig?.icon}}</mat-icon>
+        {{buttonConfig?.label}}
+    </a>
+</div>
+
+<button *ngIf="buttonTypeRaised" color="{{buttonConfig?.color}}" class="{{buttonConfig?.classes}}"
+    (click)="onButtonClick()" [disabled]="disabled" mat-raised-button>
+    <mat-icon *ngIf="buttonConfig?.icon" class="mr-5">{{buttonConfig?.icon}}</mat-icon>
+    {{buttonConfig?.label}}</button>

@@ -1,0 +1,17 @@
+@import '../../../src/styles.scss';
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.mat-mdc-raised-button[disabled], .mat-mdc-raised-button.mat-mdc-button-disabled {
+    
+        background-color: #dfdde0 !important;
+        color: rgba(0, 0, 0, 0.37) !important;
+    
+}
+
+.selected-button{
+    background-color: white;
+}
+

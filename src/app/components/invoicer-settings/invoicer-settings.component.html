@@ -1,0 +1,59 @@
+<div class="padding-5 height-94">
+    <app-card>
+        <form [formGroup]="formGroup" class="form-container h-600">
+            <div class="seller-section border-bottom-blue">
+                Twoja firma
+            </div>
+            <app-text-field class="field-sellerName" [label]="settingsFormLabels.SellerName" [required]="true"
+                [formControlName]="settingsFormControls.sellerName"></app-text-field>
+            <app-text-field class="field-sellerStreet" [label]="settingsFormLabels.SellerStreet"
+                [formControlName]="settingsFormControls.sellerStreet"></app-text-field>
+            <app-text-field class="field-sellerPostCode" [label]="settingsFormLabels.SellerPostCode"
+                [formControlName]="settingsFormControls.sellerPostCode"></app-text-field>
+            <app-text-field class="field-sellerCity" [label]="settingsFormLabels.SellerCity"
+                [formControlName]="settingsFormControls.sellerCity"></app-text-field>
+            <app-text-field class="field-sellerCountry" [label]="settingsFormLabels.SellerCountry"
+                [formControlName]="settingsFormControls.sellerCountry"></app-text-field>
+            <app-text-field class="field-sellerTaxNumber" [label]="settingsFormLabels.SellerTaxNumber" [required]="true"
+                [formControlName]="settingsFormControls.sellerTaxNumber"></app-text-field>
+            <app-text-field class="field-sellerBank" [label]="settingsFormLabels.SellerBank" [required]="true"
+                [formControlName]="settingsFormControls.sellerBank"></app-text-field>
+            <app-text-field class="field-sellerBankAccountPln" [label]="settingsFormLabels.SellerBankAccountPln"
+                [required]="true" [required]="true"
+                [formControlName]="settingsFormControls.sellerBankAccountPln"></app-text-field>
+            <app-text-field class="field-sellerBankAccountEur" [label]="settingsFormLabels.SellerBankAccountEur"
+                [required]="true" [formControlName]="settingsFormControls.sellerBankAccountEur"></app-text-field>
+
+            <div class="invoice-section border-bottom-blue">
+                Dane na fakturze
+            </div>
+
+            <app-text-field class="field-paymentPeriod" [label]="settingsFormLabels.PaymentPeriod" [required]="true"
+                [inputType]="inputTypeNumber" [formControlName]="settingsFormControls.paymentPeriod"></app-text-field>
+            <app-combobox class="field-tax" [label]="settingsFormLabels.Tax" [items]="taxItems" [required]="true"
+                [formControlName]="settingsFormControls.tax"></app-combobox>
+            <app-text-field class="field-description" [label]="settingsFormLabels.Description"
+                [formControlName]="settingsFormControls.description"></app-text-field>
+            <app-text-field class="field-quantity" [label]="settingsFormLabels.Quantity" [required]="true"
+                [inputType]="inputTypeNumber" [formControlName]="settingsFormControls.quantity"></app-text-field>
+            <app-text-field class="field-quantityUnit" [label]="settingsFormLabels.QuantityUnit" [required]="true"
+                [formControlName]="settingsFormControls.quantityUnit"></app-text-field>
+            <app-combobox class="field-exchangeCurrency" [label]="settingsFormLabels.ExchangeCurrency" [required]="true"
+                [items]="currencyItems" [formControlName]="settingsFormControls.exchangeCurrency"></app-combobox>
+            <app-combobox class="field-currency" [label]="settingsFormLabels.Currency" [items]="currencyItems"
+                [required]="true" [formControlName]="settingsFormControls.currency"></app-combobox>
+
+            <div class="api-section border-bottom-blue">
+                Połączenie z serwerem
+            </div>
+
+            <app-text-field class="field-apiUrl" [label]="settingsFormLabels.ApiUrl" [required]="true"
+                [formControlName]="settingsFormControls.apiUrl"></app-text-field>
+            <app-text-field class="field-apiToken" [label]="settingsFormLabels.ApiToken" [required]="true"
+                [formControlName]="settingsFormControls.apiToken"></app-text-field>
+
+            <app-button class="button-section" (onClick)="saveSettings()"
+                [disabled]="saveSettingsButtonDisabled$ | async" [buttonConfig]="saveSettingsButtonConfig"></app-button>
+        </form>
+    </app-card>
+</div>

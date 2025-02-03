@@ -1,0 +1,43 @@
+<div class="padding-5 height-94">
+    <app-card>
+        <form [formGroup]="formGroup" class="form-container h-600">
+            <div class="customer-title border-bottom-blue">
+                {{formTitle$ | async}}
+            </div>
+            <app-text-field class="field-name" [label]="customersFormLabels.Name" [required]="true"
+                [formControlName]="customersFormControls.name"></app-text-field>
+            <app-text-field class="field-taxNumber" [label]="customersFormLabels.TaxNumber" [required]="true"
+                [formControlName]="customersFormControls.taxNumber"></app-text-field>
+            <app-text-field class="field-postCode" [label]="customersFormLabels.PostCode"
+                [formControlName]="customersFormControls.postCode"></app-text-field>
+            <app-text-field class="field-city" [label]="customersFormLabels.City"
+                [formControlName]="customersFormControls.city"></app-text-field>
+            <app-text-field class="field-street" [label]="customersFormLabels.Street"
+                [formControlName]="customersFormControls.street"></app-text-field>
+            <app-text-field class="field-country" [label]="customersFormLabels.Country"
+                [formControlName]="customersFormControls.country"></app-text-field>
+            <div class="grid-title border-bottom-blue">
+                Lista klientów
+            </div>
+            <div class="grid">
+                <app-card class="grid-table" [cardConfig]="gridCardConfig">
+                    <app-grid [config]="gridConfig" [dataSource]="customersGridData$ | async"
+                        [selectedRow]="selectedCustomer$ | async"
+                        (selectedRowChange)="selectedRowChange($event)"></app-grid>
+                </app-card>
+                <div class="grid-buttons">
+                    <app-button (onClick)="addCustomerButtonClick()" [buttonConfig]="addCustomerButtonConfig"
+                        [disabled]="addCustomerButtonDisabled$ | async"></app-button>
+                    <app-button class="ml-10" (onClick)="deleteCustomer()"
+                        [disabled]="deleteCustomerButtonDisabled$ | async"
+                        [buttonConfig]="deleteCustomerButtonConfig"></app-button>
+                </div>
+            </div>
+
+
+            <app-button class="add-button" (onClick)="addCustomer()" [disabled]="saveCustomerButtonDisabled$ | async"
+                [buttonConfig]="saveCustomerButtonConfig"></app-button>
+
+        </form>
+    </app-card>
+</div>

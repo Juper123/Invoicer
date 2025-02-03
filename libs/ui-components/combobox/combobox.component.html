@@ -1,0 +1,11 @@
+<ng-container [formGroup]="formGroup">
+    <mat-form-field appearance="outline">
+        <mat-label>{{labelSignal()}}</mat-label>
+        <mat-select [required]="requiredSignal()" [formControlName]="formControlNameSignal()">
+            @for (item of items; track item) {
+            <mat-option [value]="item.value">{{item.valueLabel}}</mat-option>
+            }
+        </mat-select>
+        <mat-error>{{requiredMessage()}}</mat-error>
+    </mat-form-field>
+</ng-container>

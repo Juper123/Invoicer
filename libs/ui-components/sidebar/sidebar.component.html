@@ -1,0 +1,4 @@
+<div class="flex-column">
+    <app-button *ngFor="let button of sidebarConfig.buttons" (onClick)="onBtnClickHandler(button.label)"
+        [buttonConfig]="button" [isButtonSelected]="isButtonSelected(button.label)"></app-button>
+</div>

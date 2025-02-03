@@ -1,0 +1,13 @@
+<mat-drawer-container class="container-position-absolute background-blue-1">
+    <mat-drawer mat-fab class="background-blue-3 width-200" mode="side" opened>
+        <app-sidebar (emitBtnClick)="onSidebarBtnClick($event)" [sidebarConfig]="sidebarConfig"></app-sidebar>
+    </mat-drawer>
+    <mat-drawer-content class="background-blue-1 padding-15">
+        <app-invoicer-home *ngIf="isHomeSelected$ | async"></app-invoicer-home>
+        <app-invoicer-customers *ngIf="isCustomersSelected$ | async"></app-invoicer-customers>
+        <app-invoicer-invoices *ngIf="isInvoicesSelected$ | async"></app-invoicer-invoices>
+        <app-invoicer-settings *ngIf="isSettingsSelected$ | async"></app-invoicer-settings>
+        <app-progress-bar [mode]="progressBarMode$ | async" [value]="progressBarValue$ | async"></app-progress-bar>
+
+    </mat-drawer-content>
+</mat-drawer-container>

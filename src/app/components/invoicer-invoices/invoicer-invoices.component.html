@@ -1,0 +1,57 @@
+<div class="padding-5 height-94">
+    <app-card>
+        <form [formGroup]="formGroup" class="form-container h-600">
+            <div class="invoices-title border-bottom-blue">
+                {{invoicesTitle$ | async}}
+            </div>
+            <app-text-field class="field-orderNumber" [label]="invoicesFormLabels.OrderNumber" [required]="true"
+                [formControlName]="invoicesFormControls.orderNumber"></app-text-field>
+            <app-text-field class="field-price" [label]="invoicesFormLabels.Price" [required]="true"
+                [inputType]="inputTypeNumber" [formControlName]="invoicesFormControls.price"></app-text-field>
+            <app-text-field class="field-sellDate" [label]="invoicesFormLabels.SellDate" [required]="true"
+                [placeholder]="datePlaceholder" [mask]="inputMaskDate"
+                [formControlName]="invoicesFormControls.sellDate"></app-text-field>
+            <app-combobox class="field-customerTaxNumber" [label]="invoicesFormLabels.CustomerTaxNumber"
+                [items]="customers$ | async" [required]="true"
+                [formControlName]="invoicesFormControls.customerTaxNumber"></app-combobox>
+            <app-combobox class="field-tax" [label]="invoicesFormLabels.Tax" [required]="true" [items]="taxItems"
+                [formControlName]="invoicesFormControls.tax"></app-combobox>
+            <app-text-field class="field-paymentPeriod" [label]="invoicesFormLabels.PaymentPeriod" [required]="true"
+                [inputType]="inputTypeNumber" [formControlName]="invoicesFormControls.paymentPeriod"></app-text-field>
+            <app-combobox class="field-exchangeCurrency" [label]="invoicesFormLabels.ExchangeCurrency" [required]="true"
+                [items]="currencyItems" [formControlName]="invoicesFormControls.exchangeCurrency"></app-combobox>
+            <app-combobox class="field-currency" [label]="invoicesFormLabels.Currency" [required]="true"
+                [items]="currencyItems" [formControlName]="invoicesFormControls.currency"></app-combobox>
+            <app-text-field class="field-description" [label]="invoicesFormLabels.Description"
+                [formControlName]="invoicesFormControls.description"></app-text-field>
+            <app-text-field class="field-quantity" [label]="invoicesFormLabels.Quantity" [required]="true"
+                [inputType]="inputTypeNumber" [formControlName]="invoicesFormControls.quantity"></app-text-field>
+            <app-text-field class="field-quantityUnit" [label]="invoicesFormLabels.QuantityUnit" [required]="true"
+                [formControlName]="invoicesFormControls.quantityUnit"></app-text-field>
+            <div class="grid-title border-bottom-blue">
+                Lista faktur do wysłania
+            </div>
+            <div class="grid">
+                <app-card class="grid-table" [cardConfig]="gridCardConfig">
+                    <app-grid [config]="gridConfig" [dataSource]="invoicesGridData$ | async"
+                        [selectedRow]="selectedInvoice$ | async"
+                        (selectedRowChange)="selectedRowChange($event)"></app-grid>
+                </app-card>
+                <div class="grid-buttons">
+                    <app-button (onClick)="addInvoice()" [buttonConfig]="addInvoiceButtonConfig"
+                        [disabled]="addInvoiceButtonDisabled$ | async"></app-button>
+                    <app-button class="ml-5" (onClick)="addInvoiceMode()" [buttonConfig]="addInvoiceModeButtonConfig"
+                        [disabled]="addInvoiceModeButtonDisabled$ | async"></app-button>
+                    <app-button class="ml-5" (onClick)="deleteInvoice()" [disabled]="deleteButtonDisabled$ | async"
+                        [buttonConfig]="deleteButtonConfig"></app-button>
+                    <app-button class="ml-5" (onClick)="downloadInvoices()" [disabled]="downloadButtonDisabled$ | async"
+                        [buttonConfig]="downloadButtonConfig"></app-button>
+                </div>
+            </div>
+
+            <app-button class="create-button" (onClick)="createInvoices()" [disabled]="createButtonDisabled$ | async"
+                [buttonConfig]="createButtonConfig"></app-button>
+
+        </form>
+    </app-card>
+</div>
