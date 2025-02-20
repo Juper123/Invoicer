@@ -13,7 +13,7 @@ import { AppStateInterface } from "../../../store";
 import { GridDataOperationsService, InvoicesDomainService } from "../services";
 import { Settings } from "../../../models/types";
 import { getCustomersSelector } from "../../../store/shared-selectors";
-import { DatabaseService } from "../../../../../libs";
+import { DatabaseService, modifyInvoiceNumber } from "../../../../../libs";
 
 
 @Injectable()
@@ -78,7 +78,7 @@ export class InvoicesEffects {
                         .pipe(map((postInvoiceBlob) => {
                             return InvoiceActions.createInvoiceSuccess(
                                 {
-                                    createdInvoice: [{ number: invoice.orderNumber, blob: postInvoiceBlob }],
+                                    createdInvoice: [{ number: modifyInvoiceNumber(invoice.orderNumber), blob: postInvoiceBlob }],
                                     invoiceToDelete: invoice,
                                     invoicesLength: invoices.length
                                 })

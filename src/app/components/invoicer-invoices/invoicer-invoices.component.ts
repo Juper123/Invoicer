@@ -11,11 +11,9 @@ import {
   ButtonConfig,
   CardConfig,
   ComboboxItemConfig,
-  DatabaseService,
   FormFieldInputMask,
   FormFieldInputType,
   GridConfig,
-  parseDate,
   TextFieldPlaceHolder
 } from '../../../../libs';
 import * as InvoiceActions from './store/actions'
@@ -77,7 +75,7 @@ export class InvoicerInvoicesComponent implements OnInit, AfterViewInit {
     private store: Store<AppStateInterface>,
     private formsService: FormsService,
   ) {
-    this.invoicesGridData$ = this.store.pipe(select(InvoiceSelectors.getGridDataSelector), map((data) => this.sortBySellDate(data)))
+    this.invoicesGridData$ = this.store.pipe(select(InvoiceSelectors.getGridDataSelector))
     this.selectedInvoice$ = this.store.pipe(select(InvoiceSelectors.selectedInvoiceSelector))
     this.addInvoiceModeButtonDisabled$ = this.selectedInvoice$.pipe(map(selectedInvoice => !selectedInvoice))
     this.deleteButtonDisabled$ = this.selectedInvoice$.pipe(map(selectedInvoice => !selectedInvoice))
@@ -152,15 +150,5 @@ export class InvoicerInvoicesComponent implements OnInit, AfterViewInit {
 
   private isCreateButtonDisabled(invoices: Invoice[], progressValue: number): boolean {
     return (!invoices.length && progressValue === 0) || progressValue !== 0
-  }
-
-  private sortBySellDate(
-    invoices: Invoice[]
-  ): Invoice[] {
-
-    invoices = Object.assign([], invoices);
-    return invoices.sort(
-      (a, b) => new Date(parseDate(a.sellDate)).getTime() - new Date(parseDate(b.sellDate)).getTime()
-    );
   }
 }

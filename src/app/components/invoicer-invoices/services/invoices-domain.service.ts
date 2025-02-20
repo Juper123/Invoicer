@@ -4,7 +4,6 @@ import { Invoice } from "../types";
 import { Observable, switchMap } from "rxjs";
 import { Customer, HttpRequestDto, InvoiceDto, Settings } from "../../../models";
 import { DatePipe } from "@angular/common";
-import { parseDate } from "../../../../../libs";
 
 @Injectable()
 export class InvoicesDomainService {
@@ -33,12 +32,12 @@ export class InvoicesDomainService {
         customers: Customer[]): HttpRequestDto<InvoiceDto> {
         let customer = customers.find(customer => customer.taxNumber === invoice.customerTaxNumber) as Customer
         return {
-            api_token: '1iJIBuwl5qX6NmNFsMx', // settings.apiToken,
+            api_token: settings.apiToken,
             invoice: {
                 kind: 'vat',
-                sell_date: this.datePipe.transform(parseDate(invoice.sellDate), 'yyyy-MM-dd'),
+                sell_date: this.datePipe.transform(invoice.sellDate, 'yyyy-MM-dd'),
                 issue_date: this.datePipe.transform(new Date(), 'yyyy-MM-dd'),
-                payment_to: this.getPaymentTo(new Date(parseDate(invoice.sellDate)), invoice.paymentPeriod),
+                payment_to: this.getPaymentTo(new Date(invoice.sellDate), invoice.paymentPeriod),
                 seller_name: `${settings.sellerName}, ${settings.sellerStreet}, ${settings.sellerPostCode} ${settings.sellerCity}, ${settings.sellerCountry}`,
                 seller_tax_no: settings.sellerTaxNumber,
                 seller_bank_account: `Numer konta w PLN: ${settings.sellerBankAccountPln} Numer konta w EUR: ${settings.sellerBankAccountEur}`,

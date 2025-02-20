@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormControlsType, GenericFormGroup } from '../../models';
 import { Settings } from '../../models/types/settings.interface';
 import { select, Store } from '@ngrx/store';
@@ -7,7 +7,7 @@ import { FormsService } from '../../services';
 import { FormGroupTypes } from '../../enums';
 import { SAVE_BUTTON_CONFIG, SETTINGS_FORM_CONTROLS } from './consts';
 import { SettingsFormControls, SettingsFormLabels, } from './enums';
-import { combineLatest, map, Observable, Subscription, takeUntil, tap } from 'rxjs';
+import { combineLatest, map, Observable, takeUntil, tap } from 'rxjs';
 import * as SettingsActions from './store/actions'
 import { CURRENCY_ITEMS, TAX_ITEMS } from '../../consts';
 import { getSettingsSelector } from '../../store';

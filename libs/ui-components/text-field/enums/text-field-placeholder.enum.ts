@@ -1,3 +1,3 @@
 export enum TextFieldPlaceHolder {
-    Date = 'dzień-miesiąc-rok'
+    Date = 'rok-miesiąc-dzień'
 }

@@ -31,7 +31,7 @@ export class GridDataOperationsService {
     }
 
     private onEdit(customersGridData: Customer[], selectedCustomer: Customer): Customer[] {
-        let editedCustomerIndex = customersGridData.indexOf(selectedCustomer)
+        let editedCustomerIndex = customersGridData.findIndex(customer => customer.taxNumber === selectedCustomer.taxNumber)
         customersGridData.splice(editedCustomerIndex, 1, this.formsService.getFormValues<Customer>(FormGroupTypes.Customers))
         return customersGridData
     }

@@ -36,14 +36,4 @@ export class HttpService {
         headers = headers.append('Content-Type', 'application/json;');
         return headers;
     }
-
-    // private getHeaders2(): HttpHeaders {
-    //     let headers = new HttpHeaders();
-    //     headers = headers.append('Accept', 'application/json');
-    //     headers = headers.append('Content-Type', 'application/json;');
-    //     headers = headers.append('Access-Control-Allow-Origin', '*');
-    //     headers = headers.append('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
-    //     headers = headers.append('Access-Control-Rewuest-Methods', 'GET,POST,PUT,PATCH,DELETE');
-    //     return headers;
-    // }
 }

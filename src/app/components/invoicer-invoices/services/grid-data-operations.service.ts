@@ -35,7 +35,6 @@ export class GridDataOperationsService {
     private deleteInvoice(invoice: Invoice | null, invoices: Invoice[]): Invoice[] {
         if (invoice) {
             const index = invoices.indexOf(invoice)
-            invoices = Object.assign([], invoices);
             invoices.splice(index, 1)
         }
         return invoices
@@ -43,14 +42,13 @@ export class GridDataOperationsService {
 
     private addInvoice(invoice: Invoice | null, invoices: Invoice[]): Invoice[] {
         if (invoice) {
-            invoices = Object.assign([], invoices);
             invoices.push(invoice)
         }
         return invoices
     }
 
     private editInvoice(invoice: Invoice | null, invoices: Invoice[]): Invoice[] {
-        let editedInvoiceIndex = invoices.indexOf(invoice as Invoice)
+        let editedInvoiceIndex = invoices.findIndex(x => x.orderNumber === invoice?.orderNumber)
         invoices.splice(editedInvoiceIndex, 1, invoice as Invoice)
         return invoices
     }

@@ -6,3 +6,4 @@ export interface CustomerStateInterface {
     selectedCustomer: Customer | null
     error: any
 }
+

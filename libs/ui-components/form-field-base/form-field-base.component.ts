@@ -36,7 +36,7 @@ export class FormFieldBaseComponent<T> implements OnInit {
 
     private getMask(mask: FormFieldInputMask): string | null {
         if (mask === FormFieldInputMask.Date) {
-            return '00-00-0000'
+            return '0000/00/00'
         }
         return null
     }
